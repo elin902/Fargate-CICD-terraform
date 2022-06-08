@@ -1,0 +1,25 @@
+[
+    {
+      "name": "${app_name}",
+      "image": "${docker_image_url}",
+      "essential": true,
+      "cpu": 10,
+      "memory": 512,
+      "portMappings": [
+        {
+          "containerPort": 8000,
+          "hostPort": 8000,
+          "protocol": "tcp"
+        }
+      ],
+  
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/learnify",
+          "awslogs-region": "${region}",
+          "awslogs-stream-prefix": "learnify-log-stream"
+        }
+      }
+    }
+  ]
